@@ -16,7 +16,7 @@ server.use(express.json());
 
 server.use('/articles', articlesRouter);
 server.use('/users', usersRouter);
-server.use('/boards', boardsRouter);
+server.use('/boards', restricted, boardsRouter);
 server.use('/auth', authRouter);
 
 server.get('/', (req, res) => {
