@@ -18,14 +18,18 @@
 ###### Returns:
 ```
 {
-	data: [
-		{
-			id: 1,
-			email: “user@email.com"
-			username: “myusername”
-		}
-	],
-	message: “User created!”
+    "data": [
+        {
+            "id": 1,
+            "username": "janeDoe",
+            "email": "jane@doe.com"
+        },
+        {
+            "id": 2,
+            "username": "johnDoe",
+            "email": "john@doe.com"
+        }
+    ]
 }
 ```
 
