@@ -6,6 +6,7 @@ const articlesRouter = require('../articles/articles-router');
 const usersRouter = require('../users/users-router');
 const boardsRouter = require('../boards/boards-router');
 const authRouter = require('../auth/auth-router');
+const restricted = require('../auth/restricted-middlware');
 
 const server = express();
 
@@ -15,7 +16,7 @@ server.use(express.json());
 
 server.use('/articles', articlesRouter);
 server.use('/users', usersRouter);
-server.use('/boards', boardsRouter);
+server.use('/boards', restricted, boardsRouter);
 server.use('/auth', authRouter);
 
 server.get('/', (req, res) => {
