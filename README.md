@@ -1,5 +1,7 @@
 # back-end
 
+## Deployed on **Heroku** [pintereach-app-api](https://pintereach-app-api.herokuapp.com/)
+
 ## Users Schema
 
 #### When registering a user the minimum required is :
