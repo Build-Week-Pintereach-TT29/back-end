@@ -88,4 +88,11 @@
 
 | Route | Method | Endpoint | Description | Required |
 |-------|--------|----------|-------------|----------|
-| Articles |GET | /articles | Returns a list of public articles | No token required |
+| **Articles** | GET | /articles | Returns a list of public articles | No token required |
+| **Boards** | GET | /boards | Returns a list of boards in the database | Authentication with token |
+|            | GET | /boards/user/:id | Returns boards of logged in user by user id | Authentication with token |
+|            | GET | /boards/:id | Returns specified board by id | Authentication with token |
+|            | POST | /boards | Adds a new board, returns the added board | Authentication with token |
+|            | PUT | /boards/:id | Updates the specipecified board by id | Authentication with token |
+|            | DELETE | /boards/:id | Deletes the specified board by id | Authentication with token |
+| **Users**   | GET | /users | Returns a list of users in the database | Authentication with token |
