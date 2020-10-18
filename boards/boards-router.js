@@ -2,18 +2,18 @@ const router = require('express').Router();
 
 const Boards = require('./boards-model');
 
-// gets all boards
+// gets all boards of all users
 router.get('/', (req, res) => {
     Boards.getBoards()
     .then(boards => {
         res.status(200).json({ data: boards });
     })
     .catch(err => {
-        res.status(500).json({ message: 'Failed getting boards'});
+        res.status(500).json({ message: 'Failed getting all boards'});
     });
 });
 
-// gets boards of user with specified id
+// gets boards of logged in user by users id
 router.get('/user/:id', (req, res) => {
     Boards.findBoards(req.params.id)
     .then(boards => {
@@ -32,7 +32,7 @@ router.get('/user/:id', (req, res) => {
     });
 });
 
-// gets board of specificed id
+// gets the specified board by id
 router.get('/:id', (req, res) => {
     Boards.findBoardById(req.params.id)
     .then(board => {
@@ -45,6 +45,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// adds a new board
 router.post('/', (req, res) => {
     const newBoard = req.body;
     Boards.addBoard(newBoard)
@@ -58,6 +59,7 @@ router.post('/', (req, res) => {
     });
 })
 
+// updates the specified board
 router.put('/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
@@ -78,6 +80,7 @@ router.put('/:id', (req, res) => {
       });
 });
 
+// removes the specified board
 router.delete('/:id', (req, res) => {
     Boards.removeBoard(req.params.id)
     .then(count => {

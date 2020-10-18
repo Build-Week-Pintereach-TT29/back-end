@@ -6,13 +6,15 @@ const Users = require('../users/users-model');
 const { isValid } = require('../users/users-service');
 const { jwtSecret } = require('../api/jwt-config');
 
+
+// registers a new user given required parameters
 router.post('/register', (req, res) => {
    const credentials = req.body;
 
    if(isValid(credentials)){
     const rounds = process.env.BCRYPT_ROUNDS || 8;
 
-    //hash the pw
+    // hash the pw
     const hash = bcryptjs.hashSync(credentials.password, rounds);
 
     credentials.password = hash;
@@ -52,7 +54,7 @@ router.post('/login', (req, res) => {
         }
     })
     .catch(err => {
-        res.status(500).json({mesasge: err.message })
+        res.status(500).json({ mesasge: 'Error user not found' })
     });
   } else {
     res.status(400).json({ 
@@ -68,7 +70,7 @@ function getJwt(user) {
 
     const jwtOptions = {
         expiresIn: '8h',
-    }
+    };
 
     return jwt.sign(payload, jwtSecret, jwtOptions)
 };

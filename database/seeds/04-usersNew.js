@@ -3,16 +3,16 @@ const bcrypt = require('bcryptjs');
 exports.seed = function(knex) {
   const users = [
     { // 1
-      email: "jane@doe.com",
-      username: "janeDoe",
+      email: "harry@potter.com",
+      username: "harrypotter",
       password: bcrypt.hashSync("password", 8)
     },
     { // 2
-      email: "john@doe.com",
-      username: "johnDoe",
+      email: "ron@weasley.com",
+      username: "ronweasley",
       password: bcrypt.hashSync("password", 8)
     },
   ];
 
-  return knex('users').insert(users);
+  return knex('usersTbl').insert(users);
 };

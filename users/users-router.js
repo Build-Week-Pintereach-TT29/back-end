@@ -25,4 +25,36 @@ router.get('/:id', restricted, (req, res) => {
     });
 });
 
+// updates the specified user
+router.post('/:id', restricted, (req, res) => {
+    const { id } = req.params;
+    const changes = req.body; 
+
+    Users.findById(id)
+    .then(user => {
+        if(user) {
+            Users.updateUser(id, changes)
+            .then(updatedUser => {
+                res.json({ data: updatedUser });
+            })
+        } else {
+            res.status(404).json({ message: 'Could not find user with given id' });
+        }
+    })
+    .catch (err => {
+        res.status(500).json({ message: 'Failed to update user' });
+      });
+});
+
+// removes the specified user
+router.delete('/:id', (req, res) => {
+    Users.removeUser(req.params.id)
+    .then(count => {
+        res.json({ data: count });
+    })
+    .catch(err => {
+        res.status(500).json({ message: 'Failed to delete user'});
+    });
+});
+
 module.exports = router;
