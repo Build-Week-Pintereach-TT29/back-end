@@ -87,7 +87,7 @@
 ## Endpoints
 
 | Route | Method | Endpoint | Description | Required |
-|-------|--------|----------|-------------|----------|
+|:-------:|:--------:|----------|-------------|----------|
 | **Articles** | GET | /articles | Returns a list of public articles | No token required |
 | **Boards** | GET | /boards | Returns a list of boards in the database | token |
 |            | GET | /boards/user/:id | Returns boards of logged in user by user id | token |
@@ -100,4 +100,4 @@
 |            | PUT | /users/:id | Updates the specified user by id | token |
 |            | DELETE | /users/:id | Deletes the specified user by id | token |
 | **Auth**   | POST | /auth/register | Creates a new user | email, username, password |
-| **Auth**   | POST | /auth/login | Logs in a user, returns a token to be added to the header of other requests | username, password |
+|            | POST | /auth/login | Logs in a user, returns a token to be added to the header of other requests | username, password |
