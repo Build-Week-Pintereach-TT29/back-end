@@ -18,18 +18,12 @@
 ###### Returns:
 ```
 {
-    "data": [
-        {
-            "id": 1,
-            "username": "janeDoe",
-            "email": "jane@doe.com"
-        },
-        {
-            "id": 2,
-            "username": "johnDoe",
-            "email": "john@doe.com"
-        }
-    ]
+    "data": {
+        "id": 5,
+        "email": "user@email.com",
+        "username": "myusername",
+        "password": "$2a$08$.pvTe3fjMLGNtESy7aFx3CuePN/nGJY1jPt5a8UpWLwUq"
+    }
 }
 ```
 
@@ -50,17 +44,48 @@
 ###### Returns: 
 ```
 {
-	data: [
-		{
-			id: 1,
-			username: “myusername”
-		}
-	],
-	message: “User Logged in!”,
-token: “ldfkiofklajfoinvrklaejih”
+    "message": “You are now logged in”,
+    "token": “eyJhcCI6IkpXVCJ9.eyJ1c2Vyb5IiWMwNjg0NjF9.OIHYD8z_2oRGIQ7EfFw”
 }
 ```
 
 #### Axios call for logging in a user
 
 `axiosWithAuth().post(‘http://herokuurl.herokuapp.com/login', credentials)`
+
+## Board Schema
+
+#### When posting a board the expected body is :
+
+###### Request Body:
+```
+{
+	name: “new board name”,
+	category: "other”,
+    description: “board desc”,
+    user_id: 1
+}
+```
+
+###### Returns: 
+```
+{
+    "data": {
+        "id": 1,
+        "name": "new board name",
+        "category": "other",
+        "description": "board desc",
+        "user_id": 1
+    }
+}
+```
+
+#### Axios call for requesting Articles (public)
+
+`axios.get(‘https://pintereach-app-api.herokuapp.com/articles')`
+
+## Endpoints
+
+| Route | Method | Endpoint | Description | Required |
+|-------|--------|----------|-------------|----------|
+| Articles |GET | /articles | Returns a list of public articles | No token required |

@@ -26,7 +26,7 @@ router.get('/:id', restricted, (req, res) => {
 });
 
 // updates the specified user
-router.post('/:id', restricted, (req, res) => {
+router.put('/:id', restricted, (req, res) => {
     const { id } = req.params;
     const changes = req.body; 
 

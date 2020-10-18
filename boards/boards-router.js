@@ -59,7 +59,7 @@ router.post('/', (req, res) => {
     });
 })
 
-// updates the specified board
+// updates the specified board by id
 router.put('/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
@@ -80,7 +80,7 @@ router.put('/:id', (req, res) => {
       });
 });
 
-// removes the specified board
+// removes the specified board by id
 router.delete('/:id', (req, res) => {
     Boards.removeBoard(req.params.id)
     .then(count => {
