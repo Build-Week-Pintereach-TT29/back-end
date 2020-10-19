@@ -4,13 +4,10 @@ const axios = require('axios');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    const requestOptions = {
-        headers: { accept: 'application/json' },
-    };
-    
-    axios.get('https://icanhazdadjoke.com/search', requestOptions)
+    axios.get('https://ghibliapi.herokuapp.com/films?limit=5')
     .then(response => {
-        res.status(200).json(response.data.results);
+        // console.log('res data here', response.data)
+        res.status(200).json(response.data);
     })
     .catch(err => {
         res.status(500).json({ error: "Internal Server Error" });

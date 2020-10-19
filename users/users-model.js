@@ -10,24 +10,24 @@ module.exports = {
 };
 
 function find() {
-    return db('usersTbl')
+    return db('users')
     .select("id", "username", "email")
     .orderBy("id")
 };
 
 function findBy(filter) {
-    return db('usersTbl')
+    return db('users')
     .where(filter);
 };
 
 function findById(id) {
-    return db('usersTbl')
+    return db('users')
     .where({ id })
     .first();
 };
 
 function add(user) {
-    return db('usersTbl')
+    return db('users')
     .insert(user, "id")
     .then(ids => {
         const id = ids[0];
@@ -40,13 +40,13 @@ function add(user) {
 };
 
 function updateUser(id, changes) {
-    return db('usersTbl')
+    return db('users')
     .where({ id })
     .update(changes)
 };
 
 function removeUser(id) {
-    return db ('userTbl')
+    return db ('user')
     .where({ id })
     .del();
 };
