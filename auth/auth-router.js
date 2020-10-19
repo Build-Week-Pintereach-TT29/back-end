@@ -54,7 +54,7 @@ router.post('/login', (req, res) => {
         }
     })
     .catch(err => {
-        res.status(500).json({ mesasge: 'Error user not found' })
+        res.status(500).json({ message: 'Error user not found' })
     });
   } else {
     res.status(400).json({ 

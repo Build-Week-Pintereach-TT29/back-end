@@ -23,13 +23,13 @@ exports.seed = function(knex) {
       name: "Destinations",
       category: "travel",
       description: "places to go",
-      user_id: 2 // belongs to John
+      user_id: 2 // John
     },
     { // 5
       name: "Home Improvement",
       category: "projects",
       description: "must-do renovations",
-      user_id: 2 // belongs to John
+      user_id: 2 // John
     },
   ];
 
