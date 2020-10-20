@@ -29,7 +29,7 @@
 
 #### Axios call for registering a new user
 
-`axios.post('http://herokuurl.herokuapp.com/register', newUser)`
+`axios.post('https://pintereach-app-api.herokuapp.com/register', newUser)`
 
 #### When user logs in the minimum required is: 
 
@@ -51,7 +51,7 @@
 
 #### Axios call for logging in a user
 
-`axiosWithAuth().post(‘http://herokuurl.herokuapp.com/login', credentials)`
+`axiosWithAuth().post(‘https://pintereach-app-api.herokuapp.com/login', credentials)`
 
 ## Board Schema
 
